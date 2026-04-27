@@ -17,18 +17,17 @@ public class ScientificCalculatorView extends JFrame {
         display.setFont(new Font("Arial", Font.PLAIN, 20));
         add(display, BorderLayout.NORTH);
 
-        JPanel panel = new JPanel();
-        panel.setLayout(new GridLayout(5, 4, 5, 5));
-        panel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
-
         String[] labels = {
             "sin", "cos", "tan", "log",
-            "sqrt", "^", "C", "/",
-            "7", "8", "9", "*",
-            "4", "5", "6", "-",
-            "1", "2", "3", "+",
-            "0", ".", "=", "" // Last one filler
+            "sqrt",  "^",   "C",   "/",
+               "7",  "8",   "9",   "*",
+               "4",  "5",   "6",   "-",
+               "1",  "2",   "3",   "+",
+               "0",  ".",   "=",    ""
         };
+
+        JPanel panel = new JPanel(new GridLayout(6, 4, 5, 5));
+        panel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
 
         buttons = new JButton[labels.length];
         for (int i = 0; i < labels.length; i++) {

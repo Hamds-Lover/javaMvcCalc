@@ -4,7 +4,7 @@ import java.awt.event.ActionListener;
 
 public class BinaryCalculatorView extends JFrame {
     private JTextField display;
-    private JButton[] digitButtons; // 0, 1
+    private JButton[] digitButtons;
     private JButton btnAdd, btnSub, btnMul, btnDiv, btnClear, btnEquals;
 
     public BinaryCalculatorView() {
@@ -18,35 +18,34 @@ public class BinaryCalculatorView extends JFrame {
         display.setFont(new Font("Courier New", Font.BOLD, 24));
         add(display, BorderLayout.NORTH);
 
-        JPanel panel = new JPanel();
-        panel.setLayout(new GridLayout(4, 3, 5, 5));
-        panel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
-
-        // Digits 0 and 1 only
-        digitButtons = new JButton[2];
+        digitButtons    = new JButton[2];
         digitButtons[0] = createButton("0");
         digitButtons[1] = createButton("1");
-        
-        btnAdd = createButton("+");
-        btnSub = createButton("-");
-        btnMul = createButton("*");
-        btnDiv = createButton("/");
-        btnClear = createButton("C");
+
+        btnAdd    = createButton("+");
+        btnSub    = createButton("-");
+        btnMul    = createButton("*");
+        btnDiv    = createButton("/");
+        btnClear  = createButton("C");
         btnEquals = createButton("=");
 
-        // Layout arrangement
+        JPanel panel = new JPanel(new GridLayout(3, 3, 5, 5));
+        panel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
+
+        // Row 1: 0, 1, C
         panel.add(digitButtons[0]);
         panel.add(digitButtons[1]);
         panel.add(btnClear);
-        
+
+        // Row 2: +, -, *
         panel.add(btnAdd);
         panel.add(btnSub);
         panel.add(btnMul);
-        
+
+        // Row 3: /, =, (filler)
         panel.add(btnDiv);
         panel.add(btnEquals);
-        // Empty cell filler
-        panel.add(new JLabel()); 
+        panel.add(new JLabel());
 
         add(panel, BorderLayout.CENTER);
         pack();
